@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Section } from './Section';
-import { FeedbackOptions } from './FeedbackOptions';
-import { Statistics } from './Statistics';
-import { Notification } from './Notification';
+import { Section } from './Section/Section';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Statistics } from './Statistics/Statistics';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   // export const App = () => {
@@ -19,29 +19,19 @@ export class App extends Component {
   };
   incrementFeedback = event => {
     const nameBtn = event;
-    // if (aaa) {
     this.setState({ [nameBtn]: this.state[nameBtn] + 1 });
-    // }
-    // if (event === 'good') {
-    //   this.setState({ good: this.state.good + 1 });
-    // }
-    // this.setState({ event: (this.state.event += 1) });
+    
   };
-  // this.setState({
-  //   if(event) {
-  //     console.log(event);
-  //   },
-  // });
-
+ 
   render() {
     return (
       <div
         style={{
           // height: '100vh',
-          // display: 'flex',
-          // flexDirection: 'column',
-          // justifyContent: 'center',
-          // alignItems: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
           fontSize: 40,
           color: '#010101',
         }}
@@ -54,7 +44,7 @@ export class App extends Component {
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() === 0 ? (
-            <Notification message="There is no feedback" />
+            <Notification message="There is no feedback :( " />
           ) : (
             <Statistics
               good={this.state.good}
